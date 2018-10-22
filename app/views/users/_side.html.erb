@@ -1,0 +1,25 @@
+<!-- ユーザー情報 -->
+            <h2>User info</h2>
+
+             <%= attachment_image_tag user, :profile_image, :fill, size: "100x100", format: 'jpeg', fallback: 'no_image.jpg', class: "pull-left profile-img" %>
+             <table class="table">
+              <tbody><tr></tr> 
+              <tr>
+                <th>name</th>
+                  <td>
+                    <%= user.name %>
+                  </td>
+              </tr>
+              <tr>
+                <th>introduction</th>
+                  <td>
+                    <%= user.introduction %>
+                  </td>
+              </tr>
+           </tbody>
+          </table>
+                <% if current_user.id == user.id %>
+            <%= link_to "", edit_user_path(current_user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench pull-right edit_user_#{user.id}" %>
+                <% end %>
+          <br>
+<!-- 投稿フォーム -->
