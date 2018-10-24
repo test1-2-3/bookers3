@@ -4,6 +4,11 @@
   <% if @user.errors.any? %>
    <p>ユーザー名を２文字以上２０文字以内で入力してください。</p>
   <% end %>
+  <% if flash[:notice] %>
+    <div class="flash">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
   <div class="form-group">
     <%= f.label :name %>
     <%= f.text_field :name, autofocus: true, autocomplete: 'username', class: 'form-control name' %>

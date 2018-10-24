@@ -26,6 +26,10 @@ class BooksController < ApplicationController
 
   # GET /books/1/edit
   def edit
+    @book = Book.find(params[:id])
+    if @book.user.id != current_user.id
+    redirect_to user_path
+    end
   end
 
   # POST /books
@@ -35,6 +39,7 @@ class BooksController < ApplicationController
     @book.user_id = current_user.id
 
     if @book.save
+    flash[:notice] = "successfully"
     redirect_to book_path(@book)
     else
       @books = Book.all

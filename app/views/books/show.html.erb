@@ -31,8 +31,8 @@
                   <td><%=@books.title %></td>
                   <td><%=@books.opinion %></td>
                   <% if @books.user == current_user %>
-                  <td><%= link_to 'Edit', edit_book_path(@books), class: "btn-sm btn-success edit_book_#{@book.id}" %></td>
-                  <td><%= link_to 'Destroy',@books, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-sm btn-danger destroy_book_#{@book.id}" %></td>
+                  <td><%= link_to 'Edit', edit_book_path(@books), class: "btn-sm btn-success edit_book_#{@books.id}" %></td>
+                  <td><%= link_to 'Destroy',@books, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-sm btn-danger destroy_book_#{@books.id}" %></td>
                   <% end %>
                 </tr>
             </tbody>

@@ -21,11 +21,13 @@ before_action :authenticate_user!
   def edit
     @user = User.find(params[:id])
     if @user.id != current_user.id
+      flash[:notice] = "successfully"
     	redirect_to user_path
     end
   end
   def create
     if @user.save
+    flash[:notice] = "successfully"
     redirect_to user_path
     else render :edit
     end
@@ -33,6 +35,7 @@ before_action :authenticate_user!
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
+    flash[:notice] = "successfully"
     redirect_to user_path
     else render :edit
     end
